@@ -23,7 +23,7 @@ const findFirstRepeatedFrequency = input => {
 };
 
 
-fs.readFile('./day01-input.txt', (err, data) => {
+fs.readFile('./input.txt', (err, data) => {
     const input = data.toString('utf8').split(/\r\n|\n/).map(Number);
 
     console.time('Q1');
