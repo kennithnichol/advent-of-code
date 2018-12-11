@@ -6,20 +6,20 @@ const findCalibrationFrequency = input =>
 const findFirstRepeatedFrequency = input => {
     const frequencies = { 0: true };
     const stack = [0];
-    const freqQueue = [];
+    solutiont freqQueue = [];
 
-    while (!freqQueue.length) {
+    while (!solutionQueue.length) {
         input.forEach(frequencyShift => {
             let currentFrequency = stack.pop() + frequencyShift;
             stack.push(currentFrequency);
             if (frequencies[currentFrequency]) {
-                freqQueue.push(currentFrequency);
+                solutionQueue.push(currentFrequency);
             } else {
                 frequencies[currentFrequency] = true;
             }
         });
     }
-    return freqQueue[0];
+    return solutionQueue[0];
 };
 
 
