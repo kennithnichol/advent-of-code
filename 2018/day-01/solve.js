@@ -6,7 +6,7 @@ const findCalibrationFrequency = input =>
 const findFirstRepeatedFrequency = input => {
     const frequencies = { 0: true };
     const stack = [0];
-    solutiont freqQueue = [];
+    const solutionQueue = [];
 
     while (!solutionQueue.length) {
         input.forEach(frequencyShift => {
