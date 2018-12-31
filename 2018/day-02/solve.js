@@ -31,6 +31,27 @@ const checksum = (input = []) => {
 	return charIndex[2] * charIndex[3];
 }
 
+const longestCommon = (input = []) => {
+	let maxSim = '';
+	for (let i = 0; i < input.length; i++) {
+		for (let j = i + 1; j < input.length; j++) {
+			let similar = findSimilar(input[i], input[j]);
+			maxSim = (similar.length > maxSim.length) ? similar : maxSim;
+		}
+	}
+	return maxSim;
+}
+
+const findSimilar = (word1, word2) => {
+	let similar = "";
+	for(let i = 0; i < word1.length; i++) {
+		if (word1[i] == word2[i]) {
+			similar += word1[i];
+		}
+	}
+	return similar;
+}
+
 const fs = require('fs');
 
 fs.readFile('./input.txt', (err, data) => {
@@ -39,5 +60,6 @@ fs.readFile('./input.txt', (err, data) => {
 	console.log('Solving 2018 Day 02');
 	console.time('Q1');
 	console.log(`Checksum ${checksum(input)}`);
+	console.log(`Common letters between the two correct box Ids are: ${longestCommon(input)}`)
 	console.timeEnd('Q1');
 });
