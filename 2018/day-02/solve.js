@@ -60,6 +60,8 @@ fs.readFile('./input.txt', (err, data) => {
 	console.log('Solving 2018 Day 02');
 	console.time('Q1');
 	console.log(`Checksum ${checksum(input)}`);
+	console.timeEnd('Q2');
+	console.time('Q2');
 	console.log(`Common letters between the two correct box Ids are: ${longestCommon(input)}`)
-	console.timeEnd('Q1');
+	console.timeEnd('Q2');
 });
