@@ -4,8 +4,6 @@ const checksum = (input = []) => {
 		3: 0
 	};
 	for(let i = 0; i < input.length; i++) {
-		let twoChar = false;
-		let threeChar = false;
 		let charMap = {};
 		for(let c = 0; c < input[i].length; c++) {
 			let char = input[i][c];
@@ -16,7 +14,12 @@ const checksum = (input = []) => {
 			}
 		}
 
+		let twoChar = false;
+		let threeChar = false;
 		for(char in charMap) {
+			if (twoChar && threeChar) {
+				break;
+			}
 			if (charMap[char] === 2 && !twoChar) {
 				charIndex[2]++;
 				twoChar = true;
@@ -60,7 +63,7 @@ fs.readFile('./input.txt', (err, data) => {
 	console.log('Solving 2018 Day 02');
 	console.time('Q1');
 	console.log(`Checksum ${checksum(input)}`);
-	console.timeEnd('Q2');
+	console.timeEnd('Q1');
 	console.time('Q2');
 	console.log(`Common letters between the two correct box Ids are: ${longestCommon(input)}`)
 	console.timeEnd('Q2');
